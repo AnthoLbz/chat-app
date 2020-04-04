@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import './contact.css'
+import './Contact.css'
 
 const Contact = ({ avatar, name, online }) => (
     <div className="Contact">
