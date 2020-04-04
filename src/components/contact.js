@@ -1,21 +1,29 @@
-import React, { Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types';
 import './contact.css'
 
-class contact extends Component {
-    render() {
-        return (
-            <div className="Contact">
-                <img className="avatar" src="https://randomuser.me/api/portraits/women/82.jpg"></img>
-                <div>
-                    <div className="name">Crystal Lawrence</div>
-                    <div className="status">
-                        <div className="status-online"></div>
-                        <div className="status-text">online</div>
-                    </div>
-                </div>
-            </div>
-        )
-    }
-}
+const Contact = ({ avatar, name, online }) => (
+    <div className="Contact">
+        <img className="avatar" src={avatar} alt= "random person" />
+        <div>
+            <div className="name">{name}</div>
+            {online ? (
+                <div className="status">
+                    <i className="status-online" />
+                    <span className="status-text">Online</span>
+                </div>) 
+                : 
+            (<div className="status">
+                <i className="status-offline" />
+                <span className="status-text">Offline</span>
+            </div>)}
+        </div>
+    </div>
+);
 
-export default contact
+Contact.propTypes = {
+    avatar: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    online: PropTypes.bool.isRequired
+};
+export default Contact
